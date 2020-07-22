@@ -38,5 +38,23 @@ public class Farm {
         return result;
     }
 
+    /**
+     * 가능한 모든 속성으로 필터링
+     * @param inventory
+     * @param color
+     * @param weight
+     * @param flag
+     * @return
+     */
+    public static List<Apple> filterApples(List<Apple> inventory, String color, int weight, boolean flag) {
+        List<Apple> result = new ArrayList<>();
 
+        for(Apple apple : inventory) {
+            // flag가 true일때 색으로 구분, flag가 false일때 무게로 구분..
+            if (flag && apple.getColor().equals(color) || (!flag && apple.getWeight() > weight)) {
+                result.add(apple);
+            }
+        }
+        return result;
+    }
 }

@@ -9,4 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Apple {
     private String color;
+    private int weight;
+
+    public Apple(String color) {
+        this.color = color;
+    }
 }
