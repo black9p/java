@@ -48,4 +48,14 @@ class FarmTest {
 
         assertEquals(expected, actual.size());
     }
+
+    @Test
+    public void test_filterApples_byWeightAndColor() {
+        List<Apple> inventory = Arrays.asList(new Apple(FarmConstants.BLUE_COLOR, 100), new Apple(FarmConstants.BLUE_COLOR, 150), new Apple(FarmConstants.RED_COLOR, 200));
+
+        int expected = 1;
+        List<Apple> actual = Farm.filterApples(inventory, new AppleRedAndHeavyPredicate());
+
+        assertEquals(expected, actual.size());
+    }
 }

@@ -57,4 +57,20 @@ public class Farm {
         }
         return result;
     }
+
+    /**
+     * Predicate를 이용한 필터링
+     * @param inventory
+     * @param p
+     * @return
+     */
+    public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate p) {
+        List<Apple> result = new ArrayList<>();
+        for (Apple apple: inventory) {
+            if(p.test(apple)) {
+                result.add(apple);
+            }
+        }
+        return result;
+    }
 }
