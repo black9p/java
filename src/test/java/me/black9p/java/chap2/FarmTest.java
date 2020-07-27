@@ -58,4 +58,20 @@ class FarmTest {
 
         assertEquals(expected, actual.size());
     }
+
+    @Test
+    public void test_filterApples_byAnonymousClass() {
+        List<Apple> inventory = Arrays.asList(new Apple(FarmConstants.BLUE_COLOR, 100), new Apple(FarmConstants.BLUE_COLOR, 150), new Apple(FarmConstants.RED_COLOR, 200));
+
+        int expected = 1;
+        // 여전히 많은 공간을 차지 & 사용이 익숙지 않음.
+        List<Apple> actual = Farm.filterApples(inventory, new ApplePredicate() {
+            @Override
+            public boolean test(Apple apple) {
+                return FarmConstants.RED_COLOR.equals(apple.getColor());
+            }
+        });
+
+        assertEquals(expected, actual.size());
+    }
 }
