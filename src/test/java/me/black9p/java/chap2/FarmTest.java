@@ -74,4 +74,24 @@ class FarmTest {
 
         assertEquals(expected, actual.size());
     }
+
+    @Test
+    public void test_filterApples_byLambdaExpression() {
+        List<Apple> inventory = Arrays.asList(new Apple(FarmConstants.BLUE_COLOR, 100), new Apple(FarmConstants.BLUE_COLOR, 150), new Apple(FarmConstants.RED_COLOR, 200));
+
+        int expected = 1;
+        List<Apple> actual = Farm.filterApples(inventory, (Apple apple) -> FarmConstants.RED_COLOR.equals(apple.getColor()));
+
+        assertEquals(expected, actual.size());
+    }
+
+    @Test
+    public void test_filterEvenNumber_byLambdaExpression() {
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5);
+
+        int expected = 2;
+        List<Integer> actual = Farm.filter(numbers, (Integer i) -> i % 2 == 0);
+
+        assertEquals(expected, actual.size());
+    }
 }

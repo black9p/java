@@ -73,4 +73,21 @@ public class Farm {
         }
         return result;
     }
+
+    /**
+     * 사과 외 다양한 물건에서 필터링이 작동하도록 리스트형식 추상화
+     * @param list
+     * @param p
+     * @param <T>
+     * @return
+     */
+    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
+        List<T> result = new ArrayList<>();
+        for(T e: list) {
+            if(p.test(e)) {
+                result.add(e);
+            }
+        }
+        return result;
+    }
 }
